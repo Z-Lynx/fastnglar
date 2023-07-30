@@ -1,9 +1,12 @@
 from fastapi import FastAPI
 from database.session import engine, SessionLocal
 from routes import user
+from routes import auth
 from models import models
+from fastapi.security import OAuth2PasswordBearer
 
 app = FastAPI()
+oauth2_scheme = OAuth2PasswordBearer(tokenUrl="auth/token")
 
 # create tables in the database
 models.Base.metadata.create_all(bind=engine)
@@ -18,3 +21,4 @@ def get_db():
 
 # include routes for users and items
 app.include_router(user.router)
+app.include_router(auth.router)

@@ -11,8 +11,10 @@ class Settings(BaseSettings):
     MYSQL_DATABASE_USER: str = "root"
     MYSQL_DATABASE_PASSWORD: str = "root123"
     MYSQL_DATABASE_NAME: str = "quanlydatsanbong"
-
+    
     class Config:
         env_file = ".env"
 
 settings = Settings()
+
+SECRET_KEY ="123"
