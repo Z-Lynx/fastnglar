@@ -6,7 +6,7 @@ from models import models
 from fastapi.security import OAuth2PasswordBearer
 
 app = FastAPI()
-oauth2_scheme = OAuth2PasswordBearer(tokenUrl="auth/token")
+oauth2_scheme = OAuth2PasswordBearer(tokenUrl="/token")
 
 # create tables in the database
 models.Base.metadata.create_all(bind=engine)

@@ -10,17 +10,16 @@ class UserBase(BaseModel):
     ngay_sinh: date
     email: str
     dia_chi: str
-    id_phan_quyen: int
-    trang_thai: int
+    id_phuong_xa: int
 
 class UserCreate(UserBase):
     ho_ten: str
     sdt: str
     ngay_sinh: date
     email: str
-    mat_khau: str
-    id_phuong_xa: int
     dia_chi: str
+    id_phuong_xa: int
+    mat_khau: str
     id_phan_quyen_nguoi_dung: int
 
 class UserUpdate(UserBase):
@@ -31,5 +30,3 @@ class User(UserBase):
     id: int
     id_phuong_xa: int
 
-    class Config:
-        orm_mode = True
