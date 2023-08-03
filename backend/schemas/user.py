@@ -22,11 +22,38 @@ class UserCreate(UserBase):
     mat_khau: str
     id_phan_quyen_nguoi_dung: int
 
+class UserLogin(BaseModel):
+    email: str
+    password: str
+    
 class UserUpdate(UserBase):
-    mat_khau: Optional[str] = None
-    id_phuong_xa: Optional[int] = None
+    ho_ten: str
+    sdt: str
+    ngay_sinh: date
+    dia_chi: str
+    id_phuong_xa: int
 
 class User(UserBase):
     id: int
     id_phuong_xa: int
 
+class UserSmall(BaseModel):
+    ho_ten: str
+    sdt: str
+
+class DoanhNghiepBase(BaseModel):
+    id: int
+    user: UserSmall
+    ten_doanh_nghiep: str
+    dia_chi: str
+    mo_ta: str
+    danh_sach_hinh_anh: str
+  
+class DoanhNghiep(DoanhNghiepBase):
+    id: int
+    id_chu_san: int
+    id_phuong_xa: int
+    trang_thai: int
+
+    class Config:
+        orm_mode = True

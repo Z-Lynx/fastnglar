@@ -1,0 +1,24 @@
+<nav class="navbar">
+  <div class="container-fluid">
+    <div class="d-flex align-items-center">
+      <a class="navbar-brand" rel="author" routerLink="/"><i class="fa fa-futbol-o mr-2" aria-hidden="true"></i> Playfield Gooo </a>
+      <a class="nav-link active" href="/booking">Thuê Sân</a>
+      <a class="nav-link active" href="/contact">Giới Thiệu</a>
+    </div>
+    <div class="d-flex align-items-center" *ngIf="isLogin != true">
+      <a
+        class="nav-link active"
+        href="/login">
+        <button class="btn btn-dark btn-block text-center" type="button">Login</button>
+      </a>
+      <a
+        class="nav-link active"
+        href="/register">
+        Register
+      </a>
+    </div>
+    <div class="d-flex align-items-center" *ngIf="isLogin">
+      <i class="fa fa-user-circle-o mr-2" aria-hidden="true" style="font-size: 32px;"></i> {{ userName }}
+    </div>
+  </div>
+</nav>

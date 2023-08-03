@@ -1,1 +1,35 @@
-<p>home works!</p>
+<div class="container">
+    <app-top-bar></app-top-bar>
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <carousel [itemsPerSlide]="1" [singleSlideOffset]="true" [interval]="3000">
+                    <slide *ngFor="let slide of imageSlides">
+                        <img [src]="slide.imageUrl" alt="Slide {{slide.id}}" style="width: 100%; height: 450px; border-radius: 20px;">
+                    </slide>
+                </carousel>
+            </div>
+        </div>
+    </div>
+    <h2 class="mt-4">Sân bóng yêu thích</h2>
+    <div class="row">
+        <div *ngFor="let footballField of footballFields; index as blogId" class="col-12 col-md-4 p-3">
+            <app-football-list [football]="footballField">
+            </app-football-list>
+        </div>
+    </div>
+    <h2 class="mt-4">Sân bóng thuê nhiều</h2>
+    <div class="row">
+        <div *ngFor="let footballField of footballFields; index as blogId" class="col-12 col-md-4 p-3">
+            <app-football-list [football]="footballField">
+            </app-football-list>
+        </div>
+    </div>
+</div>
+<!-- Footer -->
+<footer class="text-center text-lg-start bg-light text-muted">
+    <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
+        © 2023 Copyright:
+        <a class="text-reset fw-bold" href="https://ZLynx.dev/">Developer ZLynx</a>
+    </div>
+</footer>
