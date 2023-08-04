@@ -47,3 +47,7 @@ app.mount("/media", StaticFiles(directory="media"), name="media")
 async def get_image(filename: str):
     # The file path will be /media/{filename}
     return FileResponse(f"media/image/{filename}")
+
+if __name__ == "__main__":
+    import uvicorn
+    uvicorn.run(app, host="0.0.0.0", port=8000)
