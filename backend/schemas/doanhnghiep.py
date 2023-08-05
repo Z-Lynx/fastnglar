@@ -1,9 +1,6 @@
 from pydantic import BaseModel
-from typing import List 
 
 class DoanhNghiepBase(BaseModel):
-    id:int
-    id_chu_san: int
     ten_doanh_nghiep: str
     id_phuong_xa: int
     dia_chi: str
@@ -11,20 +8,41 @@ class DoanhNghiepBase(BaseModel):
     danh_sach_hinh_anh: str
     trang_thai: int
 
-    class Config:
-        orm_mode = True
-
-
 class DoanhNghiepCreate(DoanhNghiepBase):
     pass
-
 
 class DoanhNghiepUpdate(DoanhNghiepBase):
     pass
 
 
-class DoanhNghiep(DoanhNghiepBase):
+class DoanhNghiep(BaseModel):
     id: int
-
+    ten_doanh_nghiep: str
+    dia_chi: str
+    mo_ta: str
+    danh_sach_hinh_anh: str
+    
     class Config:
         orm_mode = True
+
+
+class DoanhNghiepSmall(BaseModel):
+    id_doanh_nghiep: int
+    ten_doanh_nghiep: str
+    
+class SanBong(BaseModel):
+    id_doanh_nghiep: int
+    ten_san_bong: str
+
+class SanBongResponse(BaseModel):
+    id: int
+    doanh_nghiep: DoanhNghiepSmall
+    ten_san_bong: str
+    trang_thai: str
+    
+class SanBongCreate(SanBong):
+    id: int
+    trang_thai:int
+    
+class SanBongUpdate(SanBong):
+    trang_thai:int

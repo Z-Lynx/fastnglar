@@ -1,7 +1,8 @@
 <div class="card p-1" style="height: 100%;">
-    <a class="d-flex flex-column justify-content-between" style="height: 100%;" [title]="football!.ten_doanh_nghiep + ' details'" [routerLink]="['/footballs', football!.id]">
+    <a class="d-flex flex-column justify-content-between" style="height: 100%;" [title]="football!.ten_doanh_nghiep + ' details'" 
+    [routerLink]="['/footballs', football!.id]">
         <div>
-            <img class="img-fluid card" src="http://127.0.0.1:8000/image/{{ football!.danh_sach_hinh_anh }}" 
+            <img class="img-fluid card" src="http://127.0.0.1:8000/image/{{ image }}" 
             style="    
                 height: 200px;
                 width: 100%;

@@ -8,6 +8,8 @@ import { RouterModule } from '@angular/router';
 import { CarouselModule } from 'ngx-bootstrap/carousel';
 import { NgToastModule } from 'ng-angular-popup';
 import { JwtInterceptor } from './jwt.interceptor';
+import { SlickCarouselModule } from 'ngx-slick-carousel';
+
 @NgModule({
   declarations: [AppComponent],
   imports: [
@@ -16,11 +18,12 @@ import { JwtInterceptor } from './jwt.interceptor';
     HttpClientModule,
     RouterModule,
     PageModule,
-    NgToastModule
+    NgToastModule,
+    SlickCarouselModule
   ],
   providers: [
     // Add the JwtInterceptor as a provider
-    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true }
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
   ],
   bootstrap: [AppComponent],
 })

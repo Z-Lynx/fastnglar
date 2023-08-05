@@ -55,7 +55,14 @@ export class RegisterComponent implements OnInit {
           duration: 5000,
         });
         this.cookieService.set('token_jwt', response.access_token);
-        this._router.navigate(['/home']);
+        this.authService.info().subscribe(
+          (response) => {
+            console.log(response);
+            localStorage.setItem('user', JSON.stringify(response));
+            this._router.navigate(['/home']);
+          },  
+          (error) => {}
+        );
       },
       (error) => {
         // Handle error response here, e.g., show an error message

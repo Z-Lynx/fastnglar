@@ -51,12 +51,12 @@ export class LoginComponent implements OnInit {
         this.cookieService.set('token_jwt', response.access_token);
         this.authService.info().subscribe(
           (response) => {
-            console.log(response)
-            localStorage.setItem('user', JSON.stringify(response))
+            console.log(response);
+            localStorage.setItem('user', JSON.stringify(response));
+            this._router.navigate(['/home']);
           },
           (error) => {}
         );
-        this._router.navigate(['/home']);
       },
       (error) => {
         // Handle error response here

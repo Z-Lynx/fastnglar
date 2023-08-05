@@ -11,6 +11,7 @@ class UserBase(BaseModel):
     email: str
     dia_chi: str
     id_phuong_xa: int
+    id_phan_quyen_nguoi_dung: int
 
 class UserCreate(UserBase):
     ho_ten: str

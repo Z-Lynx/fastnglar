@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
-import { ProfileComponent } from './profile/profile.component';
+import { FootballContentComponent } from './home/football-content/football-content.component';
 
 const routes: Routes = [
   {
@@ -16,6 +16,11 @@ const routes: Routes = [
     component: HomeComponent,
   },
   {
+    path: 'footballs/:footballId',
+    component: FootballContentComponent,
+  },
+
+  {
     path: 'login',
     component: LoginComponent,
   },
@@ -24,16 +29,14 @@ const routes: Routes = [
     component: RegisterComponent,
   },
   {
-    path: 'profile',
-    component: ProfileComponent,
+    path: 'quan-ly',
+    loadChildren: () =>
+      import('./quanly/quanly.module').then((m) => m.QuanlysanbongModule),
   },
-  
 ];
 
 @NgModule({
-    imports: [RouterModule.forChild(routes)],
-    exports:[RouterModule],
+  imports: [RouterModule.forChild(routes)],
+  exports: [RouterModule],
 })
-export class PageRoutingModule{
-    
-}
+export class PageRoutingModule {}

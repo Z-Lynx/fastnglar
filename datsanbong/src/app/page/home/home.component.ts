@@ -16,10 +16,15 @@ export class HomeComponent implements OnInit {
     { id: 4, imageUrl: 'assets/image/4.jpg' },
   ];
 
+  slickConfig: any = {
+    slidesToShow: 3,
+    slidesToScroll: 1,
+  };
   constructor(private footballFieldService: FootballFieldService) {}
 
   ngOnInit(): void {
     this.getFootballFields();
+
   }
 
   getFootballFields(): void {

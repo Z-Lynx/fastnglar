@@ -127,27 +127,24 @@ INSERT INTO `phuong_xa` (`id`, `ten`, `id_quan_huyen`) VALUES
 (6, 'Cô Giang', 4),
 (7, 'Hải Châu 1', 7),
 (8, 'Hải Châu 2', 7),
-(9, 'Thanh Bình', 8);
+(9, 'Hoà Minh', 9);
 
 INSERT INTO `phan_quyen_nguoi_dung` (`id`, `phan_quyen`) VALUES
 (1, 'Quản trị viên'),
 (2, 'Người dùng thường');
 
 INSERT INTO `nguoi_dung` (`id`, `ho_ten`, `sdt`, `ngay_sinh`, `email`, `mat_khau`, `id_phuong_xa`, `dia_chi`, `id_phan_quyen_nguoi_dung`, `trang_thai`) VALUES
-(1, 'Nguyễn Văn A', '0123456789', '1990-01-01', 'nguyenvana@gmail.com', '123456', 1, 'Số 10, Ngõ 123, Đường ABC', 1, 1),
-(2, 'Trần Thị B', '0987654321', '1995-01-01', 'tranthib@gmail.com', '654321', 4, 'Số 20, Đường XYZ', 2, 1),
-(3, 'Lê Văn C', '0123456788', '1992-01-01', 'levanc@gmail.com', 'abcdef', 7, 'Số 30, Đường KLM', 2, 1);
+(1, 'Nguyễn Văn A', '0123456789', '1990-01-01', 'nguyenvana@gmail.com', '123456', 1, 'Số 10, Ngõ 123, Đường ABC', 1, 1);
 
 INSERT INTO `doanh_nghiep` (`id`, `id_chu_san`, `ten_doanh_nghiep`, `id_phuong_xa`, `dia_chi`, `mo_ta`, `danh_sach_hinh_anh`, `trang_thai`) VALUES
-(1, 1, 'Sân bóng ABC', 1, 'Số 10, Ngõ 123, Đường ABC', 'Sân bóng đẹp, tiện nghi', 'san-bong-abc-1.jpg,san-bong-abc-2.jpg,san-bong-abc-3.jpg', 1),
-(2, 1, 'Sân bóng XYZ', 4, 'Số 20, Đường XYZ', 'Sân bóng rộng rãi, thoáng mát', 'san-bong-xyz-1.jpg,san-bong-xyz-2.jpg,san-bong-xyz-3.jpg', 1),
-(3, 2, 'Sân bóng KLM', 8, 'Số 30, Đường KLM', 'Sân bóng sạch sẽ, an toàn', 'san-bong-klm-1.jpg,san-bong-klm-2.jpg,san-bong-klm-3.jpg', 1);
+(1, 1, 'Sân Bóng Mini Sao', 9, '12 Hoàng Văn Thá', 'Sân bóng đẹp, tiện nghi', '1.jpg;2.jpg;3.jpg', 1),
+(2, 1, 'Sân bóng đá mini Trung Nghĩa', 9, '3589+QXV', 'Sân bóng rộng rãi, thoáng mát', '2.jpg;3.jpg', 1),
+(3, 1, 'Sân Bóng Liên Chiểu - Nhật Nga', 9, '522 Nguyễn Lương Bằng', 'Sân bóng sạch sẽ, an toàn', '3.jpg', 1);
 
 INSERT INTO `san_bong` (`id`, `id_doanh_nghiep`, `ten_san_bong`, `trang_thai`) VALUES
 (1, 1, 'Sân bóng 5 người', 1),
 (2, 1, 'Sân bóng 7 người', 1),
-(3, 2, 'Sân bóng 11 người', 1),
-(4, 3, 'Sân bóng mini', 1);
+(3, 2, 'Sân bóng 11 người', 1);
 
 INSERT INTO `gia_thue_san` (`id`, `id_san_bong`, `gio_bat_dau`, `gio_ket_thuc`, `gia_tien`) VALUES
 (1, 1, '08:00:00', '10:00:00', 500000),
@@ -155,29 +152,21 @@ INSERT INTO `gia_thue_san` (`id`, `id_san_bong`, `gio_bat_dau`, `gio_ket_thuc`, 
 (3, 2, '08:00:00', '10:00:00', 700000),
 (4, 2, '10:00:00', '12:00:00', 800000),
 (5, 3, '08:00:00', '10:00:00', 900000),
-(6, 3, '10:00:00', '12:00:00', 1000000),
-(7, 4, '08:00:00', '10:00:00', 300000),
-(8, 4, '10:00:00', '12:00:00', 400000);
+(6, 3, '10:00:00', '12:00:00', 1000000);
 
 INSERT INTO `danh_gia` (`id_danh_gia`, `id_khach_hang`, `id_doanh_nghiep`, `sao`, `noi_dung`) VALUES
-(1, 1, 1, 4, 'Sân bóng đẹp, nhân viên nhiệt tình'),
-(2, 2, 2, 5, 'Sân bóng rất tốt, giá cả hợp lý'),
-(3, 3, 3, 3, 'Sân bóng ổn định, nhưng hơi đắt tí');
+(1, 1, 1, 3, 'Sân bóng đẹp, nhân viên nhiệt tình');
+
 
 INSERT INTO `dat_san` (`id`, `id_khach_hang`, `ngay_thue`, `trang_thai`) VALUES
-(1, 1, '2023-07-28', 1),
-(2, 2, '2023-07-29', 1),
-(3, 3, '2023-07-30', 1);
+(1, 1, '2023-07-28', 1);
 
 INSERT INTO `chi_tiet_dat_san` (`id`, `id_dat_san`, `id_gia_thue_san`, `gia_tien`) VALUES
 (1, 1, 1, 500000),
-(2, 1, 2, 600000),
-(3, 2, 3, 700000),
-(4, 2, 4, 800000),
-(5, 3, 5, 900000),
-(6, 3, 6, 1000000);
+(2, 1, 2, 600000);
+
 
 INSERT INTO `thanh_toan` (`id_thanh_toan`, `id_dat_san`, `gia_tien`, `ngay_thanh_toan`) VALUES
 (1, 1, 1100000, '2023-07-28 10:00:00'),
-(2, 2, 1500000, '2023-07-29 09:00:00'),
-(3, 3, 1900000, '2023-07-30 08:00:00');
+(2, 1, 1500000, '2023-07-29 09:00:00'),
+(3, 1, 1900000, '2023-07-30 08:00:00');

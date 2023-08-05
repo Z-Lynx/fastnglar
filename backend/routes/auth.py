@@ -62,7 +62,7 @@ def register(user_data: UserCreate, db: Session = Depends(get_db)):
     db.refresh(new_user)
 
     # Create a JWT for the NguoiDung with an expiration time of 30 days
-    access_token_expires = timedelta(minutes=ACCESS_TOKEN_EXPIRE_DAYS)
+    access_token_expires = timedelta(days=ACCESS_TOKEN_EXPIRE_DAYS)
     
     access_token = create_access_token(
         data={"email": email}, expires_delta=access_token_expires
@@ -87,7 +87,7 @@ async def login(form_data: UserLogin, db: Session = Depends(get_db)):
         raise HTTPException(status_code=400, detail="Invalid username or password")
 
     # Create a JWT for the NguoiDung with an expiration time of 30 days
-    access_token_expires = timedelta(minutes=ACCESS_TOKEN_EXPIRE_DAYS)
+    access_token_expires = timedelta(days=ACCESS_TOKEN_EXPIRE_DAYS)
     
     access_token = create_access_token(
         data={"email": username}, expires_delta=access_token_expires
@@ -195,7 +195,7 @@ async def login_for_access_token(form_data: UserLogin, db: Session = Depends(get
     if not bcrypt.checkpw(password.encode("utf-8"), nguoi_dung.mat_khau):
         raise HTTPException(status_code=400, detail="Invalid username or password")
     
-    access_token_expires = timedelta(minutes=ACCESS_TOKEN_EXPIRE_DAYS)
+    access_token_expires = timedelta(days=ACCESS_TOKEN_EXPIRE_DAYS)
     
     access_token = create_access_token(
         data={"email": username}, expires_delta=access_token_expires
